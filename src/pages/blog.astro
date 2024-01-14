@@ -1,0 +1,13 @@
+---
+import '../globals.css';
+import Layout from '../layouts/main.astro';
+
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title="Blog" currentPath={currentPath}>
+  <div class="text-xl px-16">
+    <h1 class="mt-10 font-bold text-2xl">Blog</h1>
+    <p>Posts go here...</p>
+  </div>
+</Layout>

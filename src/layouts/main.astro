@@ -1,0 +1,62 @@
+---
+const { title, currentPath } = Astro.props;
+import { Twitter, Youtube, Instagram, Download, Github } from 'lucide-react';
+import { Button } from '../components/ui/button';
+import { cn } from '../lib/utils';
+import '../globals.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | Jeremy Baumann</title>
+  </head>
+  <body class="font-ubuntu text-emerald-800 font-semibold bg-orange-100">
+    <div class="h-screen w-9/12 mx-auto">
+      <div class="py-6 px-8 flex flex-row w-full items-center">
+        <a
+          href="/"
+          class={cn(
+            'hover:underline text-lg mx-2',
+            currentPath === '/' ? 'underline' : ''
+          )}>Home</a
+        >
+        <a
+          href="/projects"
+          class={cn(
+            'hover:underline text-lg mx-2',
+            currentPath === '/projects' ? 'underline' : ''
+          )}>Projects</a
+        >
+        <a
+          href="/blog"
+          class={cn(
+            'hover:underline text-lg mx-2',
+            currentPath === '/blog' ? 'underline' : ''
+          )}>Blog</a
+        >
+
+        <div class="flex flex-row ml-auto items-center">
+          <Button client:load className="bg-emerald-800 py-2 mr-2">
+            <Download size={24} className="mr-2 h-4 w-4" />Resume
+          </Button>
+          <a href="https://twitter.com/jeremy_baumann" target="_blank">
+            <Twitter className="mx-2 hover:cursor-pointer" />
+          </a>
+          <a href="https://youtube.com/@jeremybaumann" target="_blank">
+            <Youtube className="mx-2 hover:cursor-pointer" />
+          </a>
+          <a href="https://instagram.com/jeremy_baumann" target="_blank">
+            <Instagram className="mx-2 hover:cursor-pointer" />
+          </a>
+          <a href="https://github.com/jmbaumann" target="_blank">
+            <Github className="mx-2 hover:cursor-pointer" />
+          </a>
+        </div>
+      </div>
+      <slot />
+    </div>
+  </body>
+</html>

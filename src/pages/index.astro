@@ -1,0 +1,21 @@
+---
+import '../globals.css';
+import Layout from '../layouts/main.astro';
+import InReview from '../components/InReview';
+
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title="Home" currentPath={currentPath}>
+  <div class="text-xl px-16">
+    <h1 class="mt-10 font-bold text-2xl">Hi.</h1>
+    <p>I'm Jeremy.</p>
+    <p>I like to make things.</p>
+    <p>Sometimes I even finish them.</p>
+
+    <h1 class="mt-10 font-bold text-2xl">Featured Project</h1>
+    <InReview client:load />
+
+    <!-- <h1 class="mt-10 font-bold text-2xl">Recent Post</h1> -->
+  </div>
+</Layout>
